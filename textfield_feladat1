@@ -1,0 +1,17 @@
+import flet as ft
+
+def main(page: ft.Page):
+    def textbox_changed(e):
+        t.value = e.control.value
+        page.update()
+
+    t = ft.Text()
+    tb1 = ft.TextField(
+        label="Kérem adja meg a nevét.",
+        hint_text="Den Epick",
+        width=400,
+        on_change=textbox_changed
+        )
+    page.add(tb1, t)
+
+ft.app(target=main)
