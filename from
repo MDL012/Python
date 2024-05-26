@@ -1,0 +1,143 @@
+import flet as ft
+
+def main(page: ft.Page):
+    def button_clicked(e):
+        kaja = ""
+        if (c1.value):
+            kaja += "Hús leves, "
+        if (c2.value):
+            kaja += "Sült krumpli, "
+        if (c3.value):
+            kaja += "Palacsinta, "
+        if(c1.value == False and c2.value == False and c3.value == False):
+            kaja = "Nincs megadva adat"
+        c.value = "Étel lista: " + kaja
+
+        if(cg.value == "1"):
+            r.value = "A válasz helyes."
+        elif(cg.value == "-1" or cg.value == "-2"):
+            r.value = "A válasz helytelen."
+        else:
+            r.value = "A válasz nincs megadva"
+
+        kor = "Nincs megadva."
+        if(int(dd.value) >= 10 and int(dd.value) < 20):
+            kor = "Viszonylag fiatal"
+        elif(int(dd.value) >= 20 and int(dd.value) < 30):
+            kor = "Fiatal felnött"
+        elif (int(dd.value) >= 30 and int(dd.value) < 50):
+            kor = "Felnött"
+        elif (int(dd.value) >= 50 and int(dd.value) < 60):
+            kor = "Kora idős"
+        elif (int(dd.value) >= 60):
+            kor = "Idős"
+        else:
+            kor = "Nincs megadva."
+        g.value = f"A kora: {kor}"
+        page.update()
+    def textbox_changed(e):
+        hhh = e.control.value
+        if(len(hhh) < 3):
+            t.value = "Ez nem név"
+        else:
+            t.value = e.control.value
+        page.update()
+
+
+    t = ft.Text(
+        color= "yellow"
+    )
+    tb = ft.TextField(
+        width=300,
+        label="Mészáros Dénes Lajos",
+        on_change = textbox_changed,
+    )
+    page.add(ft.Text("Neve:"), tb, t)
+
+    c = ft.Text(color= "yellow")
+    c1 = ft.Checkbox(label="Hús leves", value=False)
+    c2 = ft.Checkbox(label="Sült krumpli", value=False)
+    c3 = ft.Checkbox(label="Palacsinta", value=False)
+    page.add(ft.Text("Mit ennél szivesen?"), c1, c2, c3, c)
+
+    r = ft.Text(color= "yellow")
+    cg = ft.RadioGroup(content=ft.Column([
+        ft.Radio(value="1", label="|4-5|-1 = 0"),
+        ft.Radio(value="-1", label="2+2 = 5"),
+        ft.Radio(value="-2", label="-6 = 6+-5")]))
+
+
+    page.add(ft.Text("Melyik helyes?"), cg, r)
+
+    g = ft.Text(color= "yellow")
+    dd = ft.Dropdown(
+        width=100,
+        options=[
+            ft.dropdown.Option("10"),
+            ft.dropdown.Option("11"),
+            ft.dropdown.Option("12"),
+            ft.dropdown.Option("13"),
+            ft.dropdown.Option("14"),
+            ft.dropdown.Option("15"),
+            ft.dropdown.Option("16"),
+            ft.dropdown.Option("17"),
+            ft.dropdown.Option("18"),
+            ft.dropdown.Option("19"),
+            ft.dropdown.Option("20"),
+            ft.dropdown.Option("21"),
+            ft.dropdown.Option("22"),
+            ft.dropdown.Option("23"),
+            ft.dropdown.Option("24"),
+            ft.dropdown.Option("25"),
+            ft.dropdown.Option("26"),
+            ft.dropdown.Option("27"),
+            ft.dropdown.Option("28"),
+            ft.dropdown.Option("29"),
+            ft.dropdown.Option("30"),
+            ft.dropdown.Option("31"),
+            ft.dropdown.Option("32"),
+            ft.dropdown.Option("33"),
+            ft.dropdown.Option("34"),
+            ft.dropdown.Option("35"),
+            ft.dropdown.Option("36"),
+            ft.dropdown.Option("37"),
+            ft.dropdown.Option("38"),
+            ft.dropdown.Option("39"),
+            ft.dropdown.Option("40"),
+            ft.dropdown.Option("41"),
+            ft.dropdown.Option("42"),
+            ft.dropdown.Option("43"),
+            ft.dropdown.Option("44"),
+            ft.dropdown.Option("45"),
+            ft.dropdown.Option("46"),
+            ft.dropdown.Option("47"),
+            ft.dropdown.Option("48"),
+            ft.dropdown.Option("49"),
+            ft.dropdown.Option("50"),
+            ft.dropdown.Option("51"),
+            ft.dropdown.Option("52"),
+            ft.dropdown.Option("53"),
+            ft.dropdown.Option("54"),
+            ft.dropdown.Option("55"),
+            ft.dropdown.Option("56"),
+            ft.dropdown.Option("57"),
+            ft.dropdown.Option("58"),
+            ft.dropdown.Option("59"),
+            ft.dropdown.Option("60"),
+            ft.dropdown.Option("61"),
+            ft.dropdown.Option("62"),
+            ft.dropdown.Option("63"),
+            ft.dropdown.Option("64"),
+            ft.dropdown.Option("65"),
+            ft.dropdown.Option("66"),
+            ft.dropdown.Option("67"),
+            ft.dropdown.Option("68"),
+            ft.dropdown.Option("69"),
+            ft.dropdown.Option("70")
+        ],
+    )
+    d = ft.ElevatedButton(text='Submit', on_click=button_clicked, )
+    page.add(ft.Text("Hány éves?"), dd, g,d)
+
+
+ft.app(target=main)
