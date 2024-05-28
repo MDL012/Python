@@ -1,7 +1,9 @@
 import flet as ft
 
 stam = 10
+stamsz = "Eergiadús"
 time = 30
+timesz = "Rá érsz"
 fat = 0
 fatsz = "Vézna"
 str = 0
