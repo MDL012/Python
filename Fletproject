@@ -1,0 +1,90 @@
+import flet as ft
+
+stam = 10
+time = 30
+fat = 0
+fatsz = "Vézna"
+str = 0
+strsz = "Izomtalan"
+def main(page: ft.Page):
+
+    cck1 = ft.Container(
+        bgcolor=ft.colors.YELLOW_300,
+        width=300,
+        height=600,
+        content=ft.Text(
+            value=f"  Izomzat\n  Izom pont: {str} \n\n  Izom szint:\n  {strsz}.\n\n\n\n  Zsírtartalóm\n  Zsír pont: {fat} \n\n  Zsír szint:\n  {fatsz}.",
+            size=30,
+            color=ft.colors.BLACK,
+        ),
+    )
+    cck2 = ft.Container(
+        bgcolor=ft.colors.YELLOW_200,
+        width=600,
+        height=600,
+    )
+    cck3 = ft.Container(
+        bgcolor=ft.colors.YELLOW_300,
+        width=300,
+        height=600,
+        content=ft.Text(
+            value=f"  Hátralévő idő\n  Idő pont: {str} \n\n  Idő szint:\n  {strsz}.\n\n\n\n  Energia\n  Energia pont: {fat} \n\n  Energia szint:\n  {fatsz}.",
+            size=30,
+            color=ft.colors.BLACK,
+        ),
+    )
+    sor1 = ft.Row([cck1, cck2, cck3])
+
+    ccc1 = ft.Container(
+        bgcolor=ft.colors.BLUE_600,
+        width=300,
+        height=180,
+        border_radius=10,
+        ink=True,
+        content=ft.Text(
+            value="  Evés\n  +1 energia\n  +1 zsír, -1 óra.",
+            size=30,
+
+        ),
+    )
+    ccc2 = ft.Container(
+        bgcolor=ft.colors.BLUE_600,
+        width=300,
+        height=180,
+        border_radius=10,
+        ink=True,
+        content=ft.Text(
+            value="  Edzés\n  -1 energia, -1 zsír\n  +1 izom, -1 óra.",
+            size=30,
+
+        ),
+    )
+    ccc3 = ft.Container(
+        bgcolor=ft.colors.BLUE_600,
+        width=300,
+        height=180,
+        border_radius=10,
+        ink=True,
+        content=ft.Text(
+            value="  Pihenés\n  +1 energia, -1 zsír\n  -1 óra.",
+            size=30,
+
+        ),
+    )
+    ccc4 = ft.Container(
+        bgcolor=ft.colors.BLUE_600,
+        width=300,
+        height=180,
+        border_radius=10,
+        ink=True,
+        content=ft.Text(
+            value="  Alvás\n  +10 energia, -1 zsír\n  -8 óra.",
+            size=30,
+
+        ),
+    )
+    sor2 = ft.Row([ccc1, ccc2, ccc3, ccc4])
+
+    page.add(sor1, sor2)
+
+ft.app(target=main)
