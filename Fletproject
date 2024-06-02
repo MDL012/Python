@@ -1,14 +1,24 @@
 import flet as ft
 
-stam = 10
-stamsz = "Eergiadús"
-time = 30
-timesz = "Rá érsz"
-fat = 0
-fatsz = "Vézna"
-str = 0
-strsz = "Izomtalan"
+
+
 def main(page: ft.Page):
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    def eves(a,b,c):
+        a=+1
+        b=+1
+        c=-1
+
+stam = 10
+stamsz = "'Energiadús'"
+time = 30
+timesz = "'Rá érsz'"
+fat = 0
+fatsz = "'Vézna'"
+str = 0
+strsz = "'Izomtalan'"
+
 
     cck1 = ft.Container(
         bgcolor=ft.colors.YELLOW_300,
@@ -24,13 +34,16 @@ def main(page: ft.Page):
         bgcolor=ft.colors.YELLOW_200,
         width=600,
         height=600,
+        content=ft.Text(
+            size=30,
+        ),
     )
     cck3 = ft.Container(
         bgcolor=ft.colors.YELLOW_300,
         width=300,
         height=600,
         content=ft.Text(
-            value=f"  Hátralévő idő\n  Idő pont: {str} \n\n  Idő szint:\n  {strsz}.\n\n\n\n  Energia\n  Energia pont: {fat} \n\n  Energia szint:\n  {fatsz}.",
+            value=f"  Hátralévő idő\n  Idő pont: {time} \n\n  Idő szint:\n  {timesz}.\n\n\n\n  Energia\n  Energia pont: {stam} \n\n  Energia szint:\n  {stamsz}.",
             size=30,
             color=ft.colors.BLACK,
         ),
@@ -44,10 +57,12 @@ def main(page: ft.Page):
         border_radius=10,
         ink=True,
         content=ft.Text(
+
             value="  Evés\n  +1 energia\n  +1 zsír, -1 óra.",
             size=30,
 
         ),
+        on_click=lambda e: eves(),
     )
     ccc2 = ft.Container(
         bgcolor=ft.colors.BLUE_600,
