@@ -7,7 +7,7 @@ void main(){
     print("-------------------------");
     print("");
     print("");
-    List<List<int>> list = [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]];
+    List<List<int>> list = [[3, 2, 1], [4, 6, 5], [], [9, 7, 8] , [2,1,4,1,5,1]];
     List<int> flattenAndSort(List<List<int>> nums) {
         List<int> X = [];
         for(int i = 0; i < nums.length; i++){
@@ -16,19 +16,18 @@ void main(){
                 X.add(nums[i][j]);
             }
           }
-        
         }
+        int f = 0;
         for(int i = 0;i < X.length; i++){
-          //removeAt()
-          //insert()
-            if(i!=0){
-              if(X[i] < X[i-1]){
-                int H = X.removeAt(i);
-                X.insert(X[i-1],H);
-                i=0;
-              }
+          if(i+1<X.length){
+            if(X[i] > X[i+1]){
+              f = X.removeAt(i);
+              X.add(f);
+              i=-1;
             }
+          }
         }
+        //X.sort();
         return X;
     }
 
